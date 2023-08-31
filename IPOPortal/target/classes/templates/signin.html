@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head profile="http://gmpg.org/xfn/11">
+<title>IPO On boarding Portal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="imagetoolbar" content="no" />
+<link rel="stylesheet" href="../styles/index.css" type="text/css" />
+<link rel="stylesheet" href="../styles/bootstrap.min.css"
+	type="text/css" />
+<link rel="stylesheet" href="../styles/bootstrap-grid.min.css"
+	type="text/css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
+<link rel="stylesheet" href="../styles/bootstrap-reboot.min.css"
+	type="text/css" />
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<script src="../scripts/bootstrap.min.js" />
+</head>
+<body id="top">
+<header id="header"
+		class="fixed-top d-flex align-items-center shadow-lg p-3 mb-5 bg-white rounded">
+	<div class="container d-flex justify-content-between">
+
+		<h1 class="logo me-auto">
+			<a href="index.html"><img src='../images/axis.png' width="60"
+				height="60" class="d-inline-block align-bottom" alt="" /> AXIS
+				Merchant Onboarding Portal</a>
+
+		</h1>
+
+		<!-- .navbar -->
+		<nav id="navbar" class="navbar ">
+		<ul>
+			<li><b>Welcome,Sakshi!</b></li>
+	<li><a th:href="@{/admin}" class="getstarted">Log Out<i
+					class="bi bi-arrow-bar-right fa-lg"></i></a></li>
+			<li><a href="index.html" class="getstarted">Home<i
+					class="fa fa-home fa-xxl"></i></a></li>
+
+		</ul>
+		<i class="bi bi-list mobile-nav-toggle"></i> </nav>
+	</div>
+	</header>
+<!-- ####################################################################################################### -->
+<br></br><br></br><br></br><br></br>
+
+    <ul class="nav nav-tabs justify-content-center">
+          <li class="nav-item fade show active"><a class="nav-link" th:href="@{/user/view}">Dashboard</a></li> 
+          <li class="nav-item fade show active"><a class="nav-link" th:href="@{/user/viewEmployee}">View Employees</a></li> 
+         <li class="nav-item"><a class="nav-link btn-light" th:href="@{/user/signin}">Registration</a></li>
+          <li class="nav-item fade show active"><a class="nav-link" th:href="@{/merchant/updateMerchantData}">Merchant Update</a></li>   
+          <li class="nav-item fade show active"><a class="nav-link" th:href="@{/merchant/viewUpdated}">View Request</a></li>        
+         <!--  <li class="nav-item"><a class="nav-link" th:href="@{/signout}">Sign Out</a></li>   -->   
+      </ul>
+    
+<!-- ####################################################################################################### -->
+<div class="wrapper5 row3">
+  <div class="rnd">
+    <div id="container" class="clear">
+      <!-- ####################################################################################################### -->
+      <p class="merchant">Employee Registration Form</p><br></br>
+       
+      <form action="#" th:action="@{/user/add}" th:object="${userDto}" method="post">
+          
+          <table align="center" border="0px" width="100px">
+              
+              <tr style="color: red;">
+                  <td>Name:</td><td><input type="text" th:field="*{Name}" name="name" size="25px"/></td>
+              </tr>
+              
+              <tr style="color: red;">
+                  <td>Phone No:</td><td><input type="text" th:field="*{userPhoneno}" name="userPhoneno" maxlength="10" size="25px"/></td>
+              </tr>
+              
+              <tr style="color: red;">
+                  <td>Email Id:</td><td><input type="text" th:field="*{userEmailId}" name="userEmailId" size="25px"/></td>
+              </tr>
+              
+              <tr style="color: red;">
+                  <td>Address:</td><td><textarea cols="28" rows="3" th:field="*{userAddress}" name="userAddress"></textarea></td>
+              </tr>   
+              
+              <tr style="color: red;">
+                  <td>Zipcode:</td><td><input type="text" th:field="*{userLocation}" name="userLocation"  maxlength="6" size="25px"/></td>
+              </tr>
+                  
+              <tr style="color: red;">
+                            
+              	  <td>Role:</td>
+              
+	              <td>
+	                  <select th:field="*{categoryId}" name="categoryId" style="width: 100px;">  
+	                  	 <option value="0">-Select-</option>                         
+	                     <option th:each="m : ${categorys}" th:value="${m.categoryId}" th:text="${m.categoryName}"></option>
+	                  </select>                      
+	              </td>
+                 
+              </tr>
+              
+              <tr style="color: red;">
+                  <td>User Name:</td><td><input type="text" th:field="*{userName}" name="userName" size="25px"/></td>
+              </tr>
+                        
+              <tr style="color: red;">
+                  <td>Password:</td><td><input type="password" th:field="*{userPassword}" name="userPassword" size="25px"/></td>
+              </tr>
+              
+              <tr>
+                  <td>&nbsp;</td>
+                  <td><input type="submit" value="Submit"/><input type="reset" value="Reset"/></td>
+              </tr>
+              
+          </table>
+          
+           <div th:if="${#fields.hasErrors('global')}">
+			    <p th:each="err : ${#fields.errors('global')}" th:text="${err}" style="color:red;" />
+		   </div>
+          
+      </form>
+                  
+    </div>
+    
+  </div>
+    
+ </div>
+    
+</body>
+    
+</html>

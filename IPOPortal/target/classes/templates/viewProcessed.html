@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head profile="http://gmpg.org/xfn/11">
+<title>IPO On boarding Portal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="imagetoolbar" content="no" />
+<link rel="stylesheet" href="../styles/index.css" type="text/css" />
+<link rel="stylesheet" href="../styles/bootstrap.min.css"
+	type="text/css" />
+<link rel="stylesheet" href="../styles/bootstrap-grid.min.css"
+	type="text/css" />
+<link rel="stylesheet" href="../styles/bootstrap-reboot.min.css"
+	type="text/css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<script src="../scripts/bootstrap.min.js" />
+</head>
+<body id="top">
+	<header id="header"
+		class="fixed-top d-flex align-items-center shadow-lg p-3 mb-5 bg-white rounded">
+	<div class="container d-flex justify-content-between">
+
+		<h1 class="logo me-auto">
+			<a href="index.html"><img src='../images/axis.png' width="60"
+				height="60" class="d-inline-block align-bottom" alt="" /> AXIS
+				Merchant Onboarding Portal</a>
+
+		</h1>
+
+		<!-- .navbar -->
+		<nav id="navbar" class="navbar ">
+		<ul>
+			<li><b>Welcome,Dhanashree!</b></li>
+				<li><a th:href="@{/employee}" class="getstarted">Log Out<i
+					class="bi bi-arrow-bar-right fa-lg"></i></a></li>
+			<!-- <li><a href="index.html" class="getstarted">Home<i
+					class="fa fa-home fa-xxl"></i></a></li> -->
+
+		</ul>
+		<i class="bi bi-list mobile-nav-toggle"></i> </nav>
+	</div>
+	</header>
+<!-- ####################################################################################################### -->
+<br></br><br></br><br></br><br></br>
+
+     <ul class="nav nav-tabs justify-content-center">          	  
+         <li class="nav-item fade show active"><a class="nav-link " th:href="@{/merchant/view}">View Request</a></li>    
+		  <li class="nav-item"><a class="nav-link btn-light" th:href="@{/merchant/viewProcessed}">View Approved/Rejected Merchant</a></li>                
+          <!-- <li><a th:href="@{/signout}">Sign Out</a></li> -->
+      </ul>
+   
+<!-- ####################################################################################################### -->
+<br></br>
+<div class="wrapper row3">
+  <div class="rnd">
+    <div id="container" class="clear">
+      <!-- ####################################################################################################### -->
+         
+      <p class="merchant">Approved/Rejected Merchant Records</p>
+       
+      <div th:switch="${merchants}" style="height:300px; overflow:auto;">
+      
+	    <h2 th:case="null">No Records Found!</h2>
+	    
+		    	 <div th:case="*">
+		        
+		            <table>
+		            
+		                <thead>
+		                
+		                    <tr>
+		                    	<th>Sno</th>
+		                        <th>Name</th>
+		                        <th>Marketing Name</th>
+		                        <th>Address</th>
+		                        <th>City</th>
+		                        <th>State</th>
+		                        <th>Pincode</th>
+		                        <th>Mobile No</th>
+		                        <th>Landline No</th>
+		                        <th>Director</th>
+		                        <th>Category</th>
+		                        <th>MCC</th>
+		                        <th>MCC Desc</th>
+		                        <th>Type Of Integration</th>
+		                        <th>VPA</th>
+		                        <th>GST Number</th>
+		                        <th>PAN</th>
+		                        <th>Merchant Official Id</th>
+		                        <th>Merchant Website</th>
+		                        <th>Bank Name</th>
+		                        <th>IFSC Code</th>
+		                        <th>Nodal Account No</th>
+		                        <th>Pool Account No</th>
+		                        <th>Pool IFSC Code</th>
+		                        <th>SYM</th>
+		                        <th>Batch Code</th>
+		                        <th>Status</th>
+		                        <th>Reason</th>
+		                        <th>Recorded Date</th>
+		                    </tr>
+		                    
+		                </thead>
+		                
+		                <tbody>
+		                
+		                <tr th:each="m, mstatus : ${merchants}">
+		                
+		                	<td th:text="${mstatus.count}"></td>
+		                    <td th:text="${m.name}"></td>
+		                    <td th:text="${m.marketing_name}"></td>
+		                    <td th:text="${m.address}"></td>	
+		                    <td th:text="${m.city}"></td>
+		                    <td th:text="${m.state}"></td>
+		                    <td th:text="${m.pincode}"></td>
+		                    <td th:text="${m.mobile_no}"></td>
+		                    <td th:text="${m.landline_no}"></td>
+		                    <td th:text="${m.director}"></td>
+		                    <td th:text="${m.category}"></td>
+		                    <td th:text="${m.mcc}"></td>
+		                    <td th:text="${m.mcc_desc}"></td>
+		                    <td th:text="${m.type_of_integration}"></td>
+		                    <td th:text="${m.vpa}"></td>
+		                    <td th:text="${m.gst_mumber}"></td>
+		                    <td th:text="${m.pan}"></td>
+		                    <td th:text="${m.merchant_official_id}"></td>
+		                    <td th:text="${m.merchant_website}"></td>
+		                    <td th:text="${m.bank_name}"></td>
+		                    <td th:text="${m.ifsc_code}"></td>
+		                    <td th:text="${m.nodal_account_no}"></td>
+		                    <td th:text="${m.pool_account_no}"></td>
+		                    <td th:text="${m.pool_ifsc_code}"></td>
+		                    <td th:text="${m.sym}"></td>
+		                    <td th:text="${m.uploadId}"></td>
+		                    <td style="color:red;" th:text="${m.status}"></td>
+		                    <td style="color:red;" th:text="${m.reason}"></td>
+		                    <td th:text="${m.recordedDate}"></td>	  
+		                    
+		                </tr>
+		                
+		                <tr th:if="${#lists.isEmpty(merchants)}">
+		                
+		                	<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td style="color:red;">No Record Found!</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+		                    
+		                </tr>
+		                
+		            </tbody>
+		            
+		        </table>
+		        
+		    </div> 
+		    	    
+    </div>
+    
+   </div>
+    
+  </div>
+    
+ </div>
+    
+</body>
+    
+</html>

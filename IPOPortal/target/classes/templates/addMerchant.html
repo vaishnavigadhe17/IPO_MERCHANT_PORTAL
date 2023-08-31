@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head profile="http://gmpg.org/xfn/11">
+<title>IPO On boarding Portal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="imagetoolbar" content="no" />
+<link rel="stylesheet" href="../styles/index.css" type="text/css" />
+<link rel="stylesheet" href="../styles/bootstrap.min.css"
+	type="text/css" />
+<link rel="stylesheet" href="../styles/bootstrap-grid.min.css"
+	type="text/css" />
+<link rel="stylesheet" href="../styles/bootstrap-reboot.min.css"
+	type="text/css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,300,300i,600,600i,700,700i|Raleway:300,300i,300,300i,500,500i,600,600i,700,700i|Poppins:300,300i,300,300i,500,500i,600,600i,700,700i"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<script src="../scripts/bootstrap.min.js" />
+<script type="text/javascript">
+
+function vpaForForm() 
+{	
+	var vpa = document.getElementById("validvpa");
+	
+	if(null != vpa)
+	{
+		document.getElementById("vpa").value = vpa;
+		
+		 document.getElementById("vpachoice").onclick = function () {
+			 
+         var radioButtonGroup = document.getElementsByName("vpachoice");
+         
+         var checkedRadio = Array.from(radioButtonGroup).find(
+            (radio) => radio.checked
+         );
+         
+         alert("The Selected Course Was : " + checkedRadio.value);
+         
+         document.getElementById("vpachoice").value = checkedRadio.value;
+      };
+	}
+}
+
+</script>
+
+</head>
+<body id="top">
+	<header id="header"
+		class="fixed-top d-flex align-items-center shadow-lg p-3 mb-5 bg-white rounded">
+	<div class="container d-flex justify-content-between">
+
+		<h1 class="logo me-auto">
+			<a href="index.html"><img src='../images/axis.png' width="60"
+				height="60" class="d-inline-block align-bottom" alt="" /> AXIS
+				Merchant Onboarding Portal</a>
+
+		</h1>
+
+		<!-- .navbar -->
+		<nav id="navbar" class="navbar ">
+		<ul>
+			<li><b>Welcome,Sakshi!</b></li>
+		<li><a th:href="@{/employee}" class="getstarted">Log Out<i
+					class="bi bi-arrow-bar-right fa-lg"></i></a></li>
+
+			<!-- <li><a href="index.html" class="getstarted">Home<i
+					class="fa fa-home fa-xxl"></i></a></li> -->
+		</ul>
+		<i class="bi bi-list mobile-nav-toggle"></i> </nav>
+	
+	</div>
+
+<!-- 	<div class="container d-flex justify-content-center">
+
+		<ul class="nav nav-tabs justify-content-center">
+
+			<li class="nav-item "><a class="nav-link btn-light"
+				th:href="@{/merchant/upload}">Dashboard</a></li>
+			<li class="nav-item fade show active"><a class="nav-link"
+				th:href="@{/merchant/addMerchant}">Add Merchant</a></li>
+			<li class="nav-item fade show active"><a class="nav-link"
+				th:href="@{/merchant/viewFiles}">View Files</a></li>
+
+			<li class="nav-item fade show active"><a class="nav-link"
+				th:href="@{/merchant/viewRequest}">View Request</a></li>
+		</ul>
+	</div> -->
+	</header>
+	<!-- ####################################################################################################### -->
+
+	<!-- <div class="wrapper row2">
+		<div class="rnd">
+			######
+			<div id="topnav">
+				<ul>
+					<li class="active"><a th:href="@{/merchant/upload}">Upload</a></li>
+					<li><a th:href="@{/merchant/viewFiles}">View Files</a></li>
+					<li><a th:href="@{/merchant/addMerchant}">Add Merchant</a></li>
+					<li><a th:href="@{/merchant/viewRequest}">View Request</a></li>
+					<li><a th:href="@{/signout}">Sign Out</a></li>
+				</ul>
+			</div>
+			######
+		</div>
+	</div> -->
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+
+
+
+
+
+
+	<ul class=" nav nav-tabs justify-content-center">
+
+		<li class="nav-item fade show active"><a class="nav-link"
+			th:href="@{/merchant/upload}">Dashboard</a></li>
+				<li class="nav-item"><a class="nav-link btn-light"
+			th:href="@{/merchant/addMerchant}">Add Merchant</a></li>
+		<li class="nav-item fade show active"><a class="nav-link"
+			th:href="@{/merchant/viewFiles}">View Files</a></li>
+	
+		<li class="nav-item fade show active"><a class="nav-link"
+			th:href="@{/merchant/viewRequest}">View Request</a></li>
+		<!-- <li class="nav-item"><a class="nav-link" th:href="@{/signout}">Sign
+				Out</a></li> -->
+	</ul>
+	<!-- ####################################################################################################### -->
+	<br></br>
+	<div class="wrapper row3 justify-content-center">
+		<div class="rnd">
+			<div id="container" class="clear">
+				<!-- ####################################################################################################### -->
+				<p class="merchant">New Merchant Creation </p><br></br>
+				<form action="#" th:action="@{/merchant/fileUpload}" method="post"
+					enctype="multipart/form-data">
+
+					<table align="center" border="0px" width="100px">
+
+						<tr style="color: red;">
+							<td>File:</td>
+							<td><input type="file" name="file" size="35px" /></td>
+
+
+						</tr>
+
+						<tr>
+							<td>&nbsp;</td>
+							<td><input type="submit" value="Submit" /><!-- <input
+								type="reset" value="Reset" /> --></td>
+						</tr>
+
+					</table>
+
+					<div th:if="${message != null}">
+						<p th:text="${message}" style="color: red;" />
+					</div>
+
+				</form>
+
+				<form action="#" th:action="@{/merchant/verify}"
+					th:object="${merchantDto}" method="post" id="form#1"
+					onsubmit="javascript:vpaForForm()">
+
+					<table align="right" border="0px" width="100px">
+
+						<tr>
+
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td>Add Merchant Option: <span style="color: red;">*</span></td>
+							<td><input type="radio" th:field="*{merchantOption}"
+								name="merchantOption" id="merchantOption"
+								value="Add For Both NSE and BSE" size="30px">Add For
+									Both NSE and BSE</input> <input type="radio"
+								th:field="*{merchantOption}" name="merchantOption"
+								id="merchantOption" value="Add For Given VPA Only" size="30px">Add
+									For Given VPA Only</input></td>
+
+						</tr>
+
+						<tr>
+
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+
+							<td>VPA: <span style="color: red;">*</span></td>
+							<td><input class="form-outline mb-4" type="text"
+								th:field="*{vpa}" name="validvpa" id="validvpa" size="30px" />
+								<input type="submit" value="Submit" /></td>
+
+						</tr>
+
+					</table>
+
+					<div th:if="${#fields.hasErrors('global')}">
+						<p th:each="err : ${#fields.errors('global')}" th:text="${err}"
+							style="color: red;" />
+					</div>
+
+				</form>
+
+				<form action="#" th:action="@{/merchant/add}"
+					th:object="${merchantDto}" method="post" id="form#2">
+
+					<table align="center" border="0px" width="100px">
+
+						<tr>
+
+							<td>Name: <span style="color: red;">*</span></td>
+							<td><input type="text" th:field="*{name}" name="name"
+								size="30px" /></td>
+
+							<td>Marketing Name: <span style="color: red;">*</span></td>
+							<td><input type="text" th:field="*{marketing_name}"
+								name="marketing_name" size="30px" /></td>
+
+						</tr>
+
+						<tr>
+
+							<td>Address: <span style="color: red;">*</span></td>
+							<td><textarea cols="33" rows="3" th:field="*{address}"
+									name="address"></textarea></td>
+
+							<td>City: <span style="color: red;">*</span></td>
+							<td><input type="text" th:field="*{city}" name="city"
+								size="30px" /></td>
+
+						</tr>
+
+						<tr>
+
+							<td>State: <span style="color: red;">*</span></td>
+							<td><input type="text" th:field="*{state}" name="state"
+								size="30px" /></td>
+
+							<td>Pincode: <span style="color: red;">*</span></td>
+							<td><input type="text" th:field="*{pincode}" name="pincode"
+								size="30px" maxlength="6" /></td>
+
+						</tr>
+
+						<tr>
+
+							<td>Mobile No:</td>
+							<td><input type="text" th:field="*{mobile_no}"
+								name="mobile_no" size="30px" maxlength="10" /></td>
+
+							<td>Landline No:</td>
+							<td><input type="text" th:field="*{landline_no}"
+								name="landline_no" size="30px" maxlength="14" /></td>
+
+						</tr>
+
+						<tr>
+
+							<td>Director/Partner: <span style="color: red;">*</span></td>
+							<td><input type="text" th:field="*{director}"
+								name="director" size="30px" /></td>
+
+							<td>Category:</td>
+							<td><input type="text" th:field="*{category}"
+								name="category" size="30px" /></td>
+
+						</tr>
+
+						<tr>
+
+							<td>MCC: <span style="color: red;">*</span></td>
+							<td><input type="text" th:field="*{mcc}" name="mcc"
+								size="30px" /></td>
+
+							<td>MCC Desc: <span style="color: red;">*</span></td>
+							<td><input type="text" th:field="*{mcc_desc}"
+								name="mcc_desc" size="30px" /></td>
+
+						</tr>
+
+						<tr>
+
+							<td>Type Of Integration: <span style="color: red;">*</span></td>
+							<td><input type="text" th:field="*{type_of_integration}"
+								name="type_of_integration" size="30px" /></td>
+
+							<td>GST Number: <span style="color: red;">*</span></td>
+							<td><input type="text" th:field="*{gst_mumber}"
+								name="gst_mumber" size="30px" /></td>
+
+						</tr>
+
+						<tr>
+
+							<td>PAN: <span style="color: red;">*</span></td>
+							<td><input type="text" th:field="*{pan}" name="pan"
+								size="30px" maxlength="10" /></td>
+
+							<td>Merchant Official Id:</td>
+							<td><input type="text" th:field="*{merchant_official_id}"
+								name="merchant_official_id" size="30px" /></td>
+
+						</tr>
+
+						<tr>
+
+							<td>Merchant Website:</td>
+							<td><input type="text" th:field="*{merchant_website}"
+								name="merchant_website" size="30px" /></td>
+
+							<td>Bank Name:</td>
+							<td><input type="text" th:field="*{bank_name}"
+								name="bank_name" size="30px" /></td>
+
+						</tr>
+
+						<tr>
+
+							<td>IFSC Code: <span style="color: red;">*</span></td>
+							<td><input type="text" th:field="*{ifsc_code}"
+								name="ifsc_code" size="30px" /></td>
+
+							<td>Current/Nodal Account A/C No: <span style="color: red;">*</span></td>
+							<td><input type="text" th:field="*{nodal_account_no}"
+								name="nodal_account_no" size="30px" /></td>
+
+						</tr>
+
+						<tr>
+
+							<td>Pool Account No:</td>
+							<td><input type="text" th:field="*{pool_account_no}"
+								name="pool_account_no" size="30px" /></td>
+
+							<td>Pool IFSC:</td>
+							<td><input type="text" th:field="*{pool_ifsc_code}"
+								name="pool_ifsc_code" size="30px" /></td>
+
+						</tr>
+
+						<tr>
+
+							<td>SYM:</td>
+							<td><input type="text" th:field="*{sym}" name="sym"
+								size="30px" /></td>
+
+							<td>VPA: <span style="color: red;">*</span></td>
+							<td><input type="text" th:field="*{merchantOption}"
+								name="vpachoice" id="vpachoice" size="30px" readonly="readonly" />
+								<input type="text" th:field="*{vpa}" name="vpa" id="vpa"
+								size="30px" readonly="readonly" /></td>
+
+						</tr>
+
+					</table>
+
+					<table align="right" border="0px" width="100px">
+
+						<tr>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;"><input type="submit"
+								value="Submit" /><input type="reset" value="Reset" /></td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+							<td style="border: none;">&nbsp;</td>
+						</tr>
+
+					</table>
+
+					<div th:if="${#fields.hasErrors('global')}">
+						<p th:each="err : ${#fields.errors('global')}" th:text="${err}"
+							style="color: red;" />
+					</div>
+
+				</form>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>

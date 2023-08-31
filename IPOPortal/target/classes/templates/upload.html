@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head profile="http://gmpg.org/xfn/11">
+<title>IPO On boarding Portal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="imagetoolbar" content="no" />
+<link rel="stylesheet" href="../styles/index.css" type="text/css" />
+<link rel="stylesheet" href="../styles/bootstrap.min.css"
+	type="text/css" />
+<link rel="stylesheet" href="../styles/bootstrap-grid.min.css"
+	type="text/css" />
+<link rel="stylesheet" href="../styles/bootstrap-reboot.min.css"
+	type="text/css" />
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<script src="../scripts/bootstrap.min.js" />
+</head>
+<body id="top">
+<!-- 	<header id="header"
+		class="fixed-top d-flex align-items-center shadow-lg p-3 mb-5 bg-white rounded">
+	<div class="container d-flex justify-content-between">
+
+		<h1 class="logo me-auto">
+			<a href="index.html"><img src='../images/axis.png' width="60"
+				height="60" class="d-inline-block align-bottom" alt="" /> AXIS
+				Merchant Onboarding Portal</a>
+
+		</h1>
+
+		.navbar
+		<nav id="navbar" class="navbar ">
+		<ul>
+			<li><b>Welcome,Sakshi!</b></li>
+			<li><a th:href="@{/signout}" class="btn btn-link">Sign Out<i
+					class="bi bi-box-arrow-right"></i></a></li>
+			<li><a href="index.html" class="getstarted">Home<i
+					class="fa fa-home fa-xxl"></i></a></li>
+
+		</ul>
+		<i class="bi bi-list mobile-nav-toggle"></i> </nav>
+	</div>
+	</header> -->
+	<header id="header"
+		class="fixed-top d-flex align-items-center shadow-lg p-3 mb-5 bg-white rounded">
+	<div class="container d-flex justify-content-between">
+
+		<h1 class="logo me-auto">
+			<a href="index.html" ><img src='../images/axis.png' width="60"
+				height="60" class="d-inline-block align-bottom" alt="" /> AXIS Merchant
+				Onboarding Portal</a>
+
+		</h1>
+
+		<!-- .navbar -->
+		<nav id="navbar" class="navbar ">
+		<ul>
+			<!-- <li><a href="index.html" class="getstarted">Home<i
+					class="fa fa-home fa-xxl"></i></a></li> -->
+		</ul>
+		<i class="bi bi-list mobile-nav-toggle"></i> </nav>
+	</div>
+	</header>
+	
+	<!-- ####################################################################################################### -->
+
+	<!-- <div class="wrapper row2">
+		<div class="rnd">
+			######
+			<div id="topnav">
+				<ul>
+					<li class="active"><a th:href="@{/merchant/upload}">Upload</a></li>
+					<li><a th:href="@{/merchant/viewFiles}">View Files</a></li>
+					<li><a th:href="@{/merchant/addMerchant}">Add Merchant</a></li>
+					<li><a th:href="@{/merchant/viewRequest}">View Request</a></li>
+					<li><a th:href="@{/signout}">Sign Out</a></li>
+				</ul>
+			</div>
+			######
+		</div>
+	</div> -->
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+
+	<ul class="nav nav-tabs flex justify-content-center">
+
+		<li class="nav-item"><a class="nav-link btn-light"
+			th:href="@{/merchant/upload}">Dashboard</a></li>
+		<li class="nav-item fade show active"><a class="nav-link"
+			th:href="@{/merchant/addMerchant}">Add Merchant</a></li>
+		<li class="nav-item fade show active"><a class="nav-link"
+			th:href="@{/merchant/viewFiles}">View Files</a></li>
+
+		<li class="nav-item fade show active"><a class="nav-link"
+			th:href="@{/merchant/viewRequest}">View Request</a></li>
+		<!-- <li class="nav-item"><a class="nav-link"  th:href="@{/signout}">Sign Out</a></li> -->
+	</ul>
+	<br></br>
+	<!-- ####################################################################################################### -->
+	<!-- <div class="wrapper row3">
+		<div class="rnd">
+			<div id="container" class="clear">
+				#######################################################################################################
+				<h1>File Upload Page</h1>
+
+				<form action="#" th:action="@{/merchant/fileUpload}" method="post"
+					enctype="multipart/form-data">
+
+					<table align="center" border="0px" width="100px">
+
+						<tr style="color: red;">
+							<td>File:</td>
+							<td><input type="file" name="file" size="35px" /></td>
+						</tr>
+
+						<tr>
+							<td>&nbsp;</td>
+							<td><input type="submit" value="Submit" /><input
+								type="reset" value="Reset" /></td>
+						</tr>
+
+					</table>
+
+					<div th:if="${message != null}">
+						<p th:text="${message}" style="color: red;" />
+					</div>
+
+				</form>
+
+			</div>
+
+		</div>
+
+	</div> -->
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<br> </br>
+				<h1>Welcome to</h1>
+				<h1 class="display-5">Employee Dashboard</h1>
+
+				<br></br>
+
+
+
+			</div>
+			<br></br>
+			<div class="col-sm-6">
+				<div>
+					<br></br><img src="../images/heroo.jpeg" height="350" width="500" class="img-fluid rounded float-right" alt="Responsive image"></img>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+</body>
+
+</html>
